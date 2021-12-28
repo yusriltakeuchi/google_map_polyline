@@ -7,7 +7,7 @@ Gives polyline coordinates to set polylines in Google Map.
 Flutter plugin to retrieve coordinates (in latitude and longitude) to draw the polylines (Route) in `google_maps_flutter` package.
 This package made with the inspiration of `flutter_polyline_points`.
 
-this package is a continuation of the discontinued `google_map_polyline`
+This package is a continuation of the discontinued [google_map_polyline](https://pub.dev/packages/google_map_polyline)
 
 ### Getting Started
 

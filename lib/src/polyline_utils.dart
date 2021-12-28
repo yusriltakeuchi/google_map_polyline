@@ -8,7 +8,7 @@ class PolylineUtils {
   PolylineUtils(this._data);
 
   Future<List<LatLng>?> getCoordinates() async {
-    List<LatLng>? _coordinates;
+    List<LatLng>? _coordinates = [];
 
     var qParam = {
       'mode': getMode(_data!.mode),
@@ -41,8 +41,7 @@ class PolylineUtils {
             _response.data['routes'][0]['overview_polyline']['points']);
       }
     } catch (e) {
-      print('error!!!! $e');
-      throw e;
+      print('[ERROR_POLYLINE] ${e.toString()}');
     }
 
     return _coordinates;

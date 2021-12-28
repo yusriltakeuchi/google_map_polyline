@@ -10,3 +10,6 @@
 ## [0.3.0+1]
 - Fixing Deprecated Android Embedding v2
 - Migrating to Null Safety
+
+## [0.3.0+2]
+- Updating file name path and some fix in exception
