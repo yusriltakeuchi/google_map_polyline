@@ -1,7 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:google_map_polyline/google_map_polyline.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 void main() => runApp(MyApp());
 
@@ -13,7 +12,6 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   int _polylineCount = 1;
   Map<PolylineId, Polyline> _polylines = <PolylineId, Polyline>{};
-  GoogleMapController _controller;
 
   GoogleMapPolyline _googleMapPolyline =
       new GoogleMapPolyline(apiKey: "YOUR KEY HERE");
@@ -41,14 +39,13 @@ class _MyAppState extends State<MyApp> {
 
   _onMapCreated(GoogleMapController controller) {
     setState(() {
-      _controller = controller;
     });
   }
 
   //Get polyline with Location (latitude and longitude)
   _getPolylinesWithLocation() async {
     _setLoadingMenu(true);
-    List<LatLng> _coordinates =
+    List<LatLng>? _coordinates =
         await _googleMapPolyline.getCoordinatesWithLocation(
             origin: _originLocation,
             destination: _destinationLocation,
@@ -64,7 +61,7 @@ class _MyAppState extends State<MyApp> {
   //Get polyline with Address
   _getPolylinesWithAddress() async {
     _setLoadingMenu(true);
-    List<LatLng> _coordinates =
+    List<LatLng>? _coordinates =
         await _googleMapPolyline.getPolylineCoordinatesWithAddress(
             origin: '55 Kingston Ave, Brooklyn, NY 11213, USA',
             destination: '8007 Cypress Ave, Glendale, NY 11385, USA',
@@ -77,13 +74,13 @@ class _MyAppState extends State<MyApp> {
     _setLoadingMenu(false);
   }
 
-  _addPolyline(List<LatLng> _coordinates) {
+  _addPolyline(List<LatLng>? _coordinates) {
     PolylineId id = PolylineId("poly$_polylineCount");
     Polyline polyline = Polyline(
         polylineId: id,
         patterns: patterns[0],
         color: Colors.blueAccent,
-        points: _coordinates,
+        points: _coordinates!,
         width: 10,
         onTap: () {});
 
@@ -126,20 +123,19 @@ class _MyAppState extends State<MyApp> {
                   ),
                   Expanded(
                     child: Align(
-                        alignment: Alignment.center,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: <Widget>[
-                            RaisedButton(
-                              child: Text('Polylines wtih Location'),
+                      alignment: Alignment.center,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: <Widget>[
+                          ElevatedButton(
                               onPressed: _getPolylinesWithLocation,
-                            ),
-                            RaisedButton(
-                              child: Text('Polylines wtih Address'),
+                              child: Text('Polylines with Location')),
+                          ElevatedButton(
                               onPressed: _getPolylinesWithAddress,
-                            ),
-                          ],
-                        )),
+                              child: Text('Polylines with Address'))
+                        ],
+                      ),
+                    ),
                   ),
                 ],
               );

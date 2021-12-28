@@ -4,25 +4,25 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:google_map_polyline/src/polyline_request.dart';
 
 class PolylineUtils {
-  PolylineRequestData _data;
+  PolylineRequestData? _data;
   PolylineUtils(this._data);
 
-  Future<List<LatLng>> getCoordinates() async {
-    List<LatLng> _coordinates;
+  Future<List<LatLng>?> getCoordinates() async {
+    List<LatLng>? _coordinates;
 
     var qParam = {
-      'mode': getMode(_data.mode),
-      'key': _data.apiKey,
+      'mode': getMode(_data!.mode),
+      'key': _data!.apiKey,
     };
 
-    if (_data.locationText) {
-      qParam['origin'] = _data.originText;
-      qParam['destination'] = _data.destinationText;
+    if (_data!.locationText!) {
+      qParam['origin'] = _data!.originText;
+      qParam['destination'] = _data!.destinationText;
     } else {
       qParam['origin'] =
-          "${_data.originLoc.latitude},${_data.originLoc.longitude}";
+          "${_data!.originLoc!.latitude},${_data!.originLoc!.longitude}";
       qParam['destination'] =
-          "${_data.destinationLoc.latitude},${_data.destinationLoc.longitude}";
+          "${_data!.destinationLoc!.latitude},${_data!.destinationLoc!.longitude}";
     }
 
     Response _response;
@@ -78,7 +78,7 @@ class PolylineUtils {
     return poly;
   }
 
-  String getMode(RouteMode _mode) {
+  String? getMode(RouteMode? _mode) {
     switch (_mode) {
       case RouteMode.driving:
         return 'driving';
