@@ -6,3 +6,7 @@
 
 ## [0.2.0 - 0.2.0+1]
 - Minor changes
+
+## [0.3.0+1]
+- Fixing Deprecated Android Embedding v2
+- Migrating to Null Safety

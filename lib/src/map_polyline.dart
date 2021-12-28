@@ -1,6 +1,6 @@
-import 'package:google_map_polyline/src/polyline_request.dart';
-import 'package:google_map_polyline/src/polyline_utils.dart';
-import 'package:google_map_polyline/src/route_mode.dart';
+import 'package:google_map_polyline_new/src/polyline_request.dart';
+import 'package:google_map_polyline_new/src/polyline_utils.dart';
+import 'package:google_map_polyline_new/src/route_mode.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 /// Gives polyline coordinates to set polylines in Google Map.

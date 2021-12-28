@@ -1,6 +1,6 @@
-name: google_map_polyline
+name: google_map_polyline_new
 description: Gives the polyline coordinates to set polylines in Google Map.
-version: 0.2.0+1
+version: 0.3.0+1
 homepage: https://github.com/Shark01/google_map_polyline
 
 environment:
