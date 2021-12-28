@@ -81,7 +81,7 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-  google_map_polyline:
+  google_map_polyline_new:
     dependency: "direct dev"
     description:
       path: ".."

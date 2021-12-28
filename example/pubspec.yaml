@@ -17,7 +17,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
-  google_map_polyline:
+  google_map_polyline_new:
     path: ../
 
 flutter:
