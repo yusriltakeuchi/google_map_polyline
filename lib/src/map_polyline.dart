@@ -2,10 +2,18 @@ import 'package:google_map_polyline_new/src/polyline_request.dart';
 import 'package:google_map_polyline_new/src/polyline_utils.dart';
 import 'package:google_map_polyline_new/src/route_mode.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+
 /// Gives polyline coordinates to set polylines in Google Map.
 class GoogleMapPolyline {
   String apiKey;
-  GoogleMapPolyline({required this.apiKey});
+  String? xAndroidPackage;
+  String? xAndroidCert;
+
+  GoogleMapPolyline({
+    required this.apiKey,
+    required this.xAndroidPackage,
+    required this.xAndroidCert,
+  });
 
   late PolylineUtils _utils;
   PolylineRequestData? _data;
@@ -18,11 +26,14 @@ class GoogleMapPolyline {
     required RouteMode mode,
   }) async {
     _data = new PolylineRequestData(
-        originLoc: origin,
-        destinationLoc: destination,
-        mode: mode,
-        locationText: false,
-        apiKey: apiKey);
+      originLoc: origin,
+      destinationLoc: destination,
+      mode: mode,
+      locationText: false,
+      apiKey: apiKey,
+      xAndroidPackage: xAndroidPackage,
+      xAndroidCert: xAndroidCert,
+    );
 
     _utils = new PolylineUtils(_data);
 
@@ -37,11 +48,14 @@ class GoogleMapPolyline {
     required RouteMode mode,
   }) async {
     _data = new PolylineRequestData(
-        originText: origin,
-        destinationText: destination,
-        mode: mode,
-        locationText: true,
-        apiKey: apiKey);
+      originText: origin,
+      destinationText: destination,
+      mode: mode,
+      locationText: true,
+      apiKey: apiKey,
+      xAndroidPackage: xAndroidPackage,
+      xAndroidCert: xAndroidCert,
+    );
 
     _utils = new PolylineUtils(_data);
 
