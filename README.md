@@ -53,6 +53,19 @@ To use this plugin, add `google_map_polyline` as a [dependency in your pubspec.y
 - [ ] Coordinates with Location Coordinates and Address (example: Origin as address and Destination as coordinates)
 - [ ] Alternative routes
 
+### Secured Google Map API Key
+Added support for Google Map API Key when it's secured with the mobile application way.  
+You can use the `package_info_plus` lib to retrieve `packageName` (applicationId) and `buildSignature` (sha1 sign of certificate)  
+Then, you will be able to pass it in parameters like the ApiKey, and it will be added in the headers.
 
+   ```dart
+       PackageInfo packageInfo = await PackageInfo.fromPlatform();
+       
+       GoogleMapPolyline googleMapPolyline = GoogleMapPolyline(
+            apiKey: kGoogleMapApiKey,
+            xAndroidCert: packageInfo.buildSignature,
+            xAndroidPackage: packageInfo.packageName,
+       );	
+  ```
 ### Feature Requests and Issues
 Please file feature requests and bugs at the  [issue tracker](https://github.com/Shark01/google_map_polyline/issues/new).

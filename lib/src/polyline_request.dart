@@ -9,6 +9,9 @@ class PolylineRequestData {
   RouteMode? mode;
   bool? locationText;
   String? apiKey;
+  String? xAndroidPackage;
+  String? xAndroidCert;
+  String? xIosBundleIdentifier;
 
   PolylineRequestData({
     this.originLoc,
@@ -18,5 +21,8 @@ class PolylineRequestData {
     this.mode,
     this.locationText,
     this.apiKey,
+    this.xAndroidPackage,
+    this.xAndroidCert,
+    this.xIosBundleIdentifier,
   });
 }
