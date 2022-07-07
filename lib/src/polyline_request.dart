@@ -11,6 +11,7 @@ class PolylineRequestData {
   String? apiKey;
   String? xAndroidPackage;
   String? xAndroidCert;
+  String? xIosBundleIdentifier;
 
   PolylineRequestData({
     this.originLoc,
@@ -22,5 +23,6 @@ class PolylineRequestData {
     this.apiKey,
     this.xAndroidPackage,
     this.xAndroidCert,
+    this.xIosBundleIdentifier,
   });
 }

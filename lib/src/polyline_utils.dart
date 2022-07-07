@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:dio/dio.dart';
 import 'package:google_map_polyline_new/src/polyline_request.dart';
 import 'package:google_map_polyline_new/src/route_mode.dart';
@@ -29,11 +31,17 @@ class PolylineUtils {
     Dio _dio = new Dio();
     Options? _options;
 
-    if ((_data!.xAndroidCert?.isNotEmpty ?? false) &&
+    if (Platform.isAndroid &&
+        (_data!.xAndroidCert?.isNotEmpty ?? false) &&
         (_data!.xAndroidPackage?.isNotEmpty ?? false)) {
       _options = Options(headers: {
         'X-Android-Package': _data!.xAndroidPackage,
         'X-Android-Cert': _data!.xAndroidCert,
+      });
+    } else if (Platform.isIOS &&
+        (_data!.xIosBundleIdentifier?.isNotEmpty ?? false)) {
+      _options = Options(headers: {
+        'X-Ios-Bundle-Identifier': _data!.xIosBundleIdentifier,
       });
     }
 

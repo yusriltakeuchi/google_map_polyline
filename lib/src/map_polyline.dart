@@ -8,11 +8,13 @@ class GoogleMapPolyline {
   String apiKey;
   String? xAndroidPackage;
   String? xAndroidCert;
+  String? xIosBundleIdentifier;
 
   GoogleMapPolyline({
     required this.apiKey,
-    required this.xAndroidPackage,
-    required this.xAndroidCert,
+    this.xAndroidPackage,
+    this.xAndroidCert,
+    this.xIosBundleIdentifier,
   });
 
   late PolylineUtils _utils;
@@ -33,6 +35,7 @@ class GoogleMapPolyline {
       apiKey: apiKey,
       xAndroidPackage: xAndroidPackage,
       xAndroidCert: xAndroidCert,
+      xIosBundleIdentifier: xIosBundleIdentifier,
     );
 
     _utils = new PolylineUtils(_data);
@@ -55,6 +58,7 @@ class GoogleMapPolyline {
       apiKey: apiKey,
       xAndroidPackage: xAndroidPackage,
       xAndroidCert: xAndroidCert,
+      xIosBundleIdentifier: xIosBundleIdentifier,
     );
 
     _utils = new PolylineUtils(_data);
